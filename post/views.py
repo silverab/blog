@@ -1,4 +1,9 @@
-from django.views.generic import TemplateView
+from django.views.generic import ListView
+from .models import Blog
 
-class HomePageView(TemplateView):
+
+class IndexPageView(ListView):
+	model = Blog
+	context_object_name = 'bloglist'
+	queryset = Blog.objects.all()
 	template_name = 'post/index.html'
