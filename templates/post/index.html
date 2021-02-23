@@ -5,11 +5,12 @@
 
 <h2>Index Page</h2>
 {% block content %}
-	{% for bloglist in object_list %}
+	{% for posts in posts %}
 		
-		<h3>{{ object_list.title }}</h3>
+		<h3>{{ posts.title }}</h3>
 
-		<p>Date: {{ object_list.date }}</p>
+		<p>Date: {{ posts.posted_date }}</p>
+		<p>Date: {{ posts.description }}</p>
 	{% endfor %}
 
 {% endblock content %}
