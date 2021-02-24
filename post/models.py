@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.contrib.auth.models import User
 
 class Blog(models.Model):
@@ -13,4 +14,11 @@ class Blog(models.Model):
 
 
 	def __str__(self):
-		return str(self.title)
+		return str(self.title) + ' | ' + str(self.admin)
+
+	class Meta:
+		unique_together = ('title', 'slug')
+		ordering = ['-posted_date']
+
+	def get_absolute_url(self):
+		return reverse("single_post", kwargs={"slug":self.slug})

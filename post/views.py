@@ -1,5 +1,4 @@
-from django.shortcuts import render
-from django.views.generic import ListView
+from django.shortcuts import render, Http404
 from .models import Blog
 
 
@@ -9,8 +8,9 @@ def postblog(request):
 	template = 'post/index.html'
 	return render(request, template, context)
 
-# class IndexPageView(ListView):
-# 	model = Blog
-# 	context_object_name = 'bloglist'
-# 	queryset = Blog.objects.all()
-# 	template_name = 'post/index.html'
+
+def single_post(request, slug):
+	post = Blog.objects.get(slug=slug)
+	template = 'post/single_post.html'
+	context = {'post': post }
+	return render(request, template, context)

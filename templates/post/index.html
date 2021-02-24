@@ -5,12 +5,12 @@
 
 <h2>Index Page</h2>
 {% block content %}
-	{% for posts in posts %}
+	{% for post in posts %}
 		
-		<h3>{{ posts.title }}</h3>
+		<h3><a href="{{post.get_absolute_url}}">{{ post.title }}</a></h3>
 
-		<p>Date: {{ posts.posted_date }}</p>
-		<p>Date: {{ posts.description }}</p>
+		<p>Date: {{ post.posted_date }}</p>
+		<p>{{ post.description }}</p>
 	{% endfor %}
 
 {% endblock content %}

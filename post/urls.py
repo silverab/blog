@@ -6,6 +6,8 @@ from django.conf import settings
 
 urlpatterns = [
     path('', views.postblog, name='home'),
+    path('blog/<slug:slug>/', views.single_post, name='single_post'),
+
 ]
 
 
