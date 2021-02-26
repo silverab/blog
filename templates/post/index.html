@@ -4,11 +4,11 @@
 
 {% block content %}
 
-                <div id="content" class="no-bottom no-top">
+        <div id="content" class="no-bottom no-top">
             <div id="top"></div>
 
             <!-- section begin -->
-            <section id="subheader" class="text-light" data-bgimage="{% static 'post/url(images/background/13.jpg)' %}" data-stellar-background-ratio=".2">
+            <section id="subheader" class="text-light" data-bgimage="{% static 'url(images/background/13.jpg)' %}" data-stellar-background-ratio=".2">
                 <div class="overlay-bg t50">
 
                     <div class="container">
@@ -33,13 +33,13 @@
                         {% for post in posts %}
                         <div class="col-md-4 mb30">
                             <div class="picframe wow mb20">
-                                <a href="#">
+                                <a href="{{ post.get_absolute_url}}">
                                     <span class="overlay">
                                         <span class="title">
                                             <span>Read this article</span>
                                         </span>
                                     </span>
-                                    <img src="{{ post.feature_image }}" class="wow" alt="" />
+                                    <img src="{{ post.feature_image.url }}" class="wow" alt="" />
                                 </a>
                             </div>
 
@@ -51,7 +51,7 @@
 
                                 <div class="post-content">
                                     <div class="post-text">
-                                        <h3><a href="#">{{ post.title }}</a></h3>
+                                        <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
                                         <p>{{ post.description }}</p>
                                     </div>
                                 </div>

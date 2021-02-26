@@ -1,29 +1,54 @@
-{% extends 'base.html' %}
+{% extends 'post/base.html' %}
+
+{% load static %}
 
 {% block content %}
 
-<!-- <div class="hero overlay" style="background-image: url('/static/images/bg_3.jpg');"> -->
+        <div id="content" class="no-bottom no-top">
+            <div id="top"></div>
 
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-lg-9 mx-auto text-center">
-        
-      </div>
-    </div>
-  </div>
-</div>
+            <!-- section begin -->
+            <section id="subheader" class="text-light" data-bgimage="{% static 'url(images/background/13.jpg)' %}" data-stellar-background-ratio=".2">
+              <img src="{{ post.feature_image }}" class="text-light" alt="" />
+                
 
+            </section>
+            <!-- section close -->
 
-<div class="site-section first-section">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8 blog-content">
-        <h1 class="text-black">{{post.title}}</h1>
-        <p><span>{{post.posted_date}}</span>
-        <!--   &nbsp;&nbsp;|&nbsp; <span>{{new.admin}}</span> -->
-        </p>
-        <hr class="text-white">
-        <p>{{post.description}}</p>
-        <p><img src="{{new.feature_image.url}}" alt="Image" class="img-fluid"></p>
+            <!-- section begin -->
+            <section id="section-services" data-bgcolor="#f9f9f9">
+                <div class="container">
+
+                    <div class="row">
+                        <div class="col-md-6 offset-md-3">
+                                      <h2 class="title">{{ post.title }}</h2>
+                            <div class="picframe wow mb20">
+                                <a href="">
+                                    <img src="{{ post.feature_image.url }}" class="wow" alt="" />
+                                </a>
+                            </div>
+
+                            <div class="post-item s1 item">
+                                <div class="date-box">
+                                    <div class="m"></div>
+                                    <div class="d">{{ post.posted_date|date}}</div>
+                                </div>
+
+                                <div class="post-content">
+                                    <div class="post-text">
+                                        <h3><a href="">{{ post.title }}</a></h3>
+                                        <p>{{ post.description }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+            </section>
+            <!-- section close -->
+
+        </div>
 
 {% endblock content %}
