@@ -10,6 +10,10 @@ def about(request):
 	template = 'post/about_us.html'
 	return render(request, template)
 
+def services(request):
+	template = 'post/services.html'
+	return render(request, template)
+
 def postblog(request):
 	posts = Blog.objects.all()
 	context = {'posts': posts }
