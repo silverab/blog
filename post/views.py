@@ -2,10 +2,14 @@ from django.shortcuts import render, Http404
 from .models import Blog
 
 
+def home(request):
+	template = 'post/index.html'
+	return render(request, template)
+
 def postblog(request):
 	posts = Blog.objects.all()
 	context = {'posts': posts }
-	template = 'post/index.html'
+	template = 'post/blog.html'
 	return render(request, template, context)
 
 

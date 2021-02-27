@@ -1,0 +1,70 @@
+{% extends 'post/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+        <div id="content" class="no-bottom no-top">
+            <div id="top"></div>
+
+            <!-- section begin -->
+            <section id="subheader" class="text-light" data-bgimage="{% static 'url(images/background/13.jpg)' %}" data-stellar-background-ratio=".2">
+                <div class="overlay-bg t50">
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h1>Our Blog</h1>
+                                <p>Latest update from the company</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+            <!-- section close -->
+
+            <!-- section begin -->
+            <section id="section-services" data-bgcolor="#f9f9f9">
+                <div class="container">
+
+                    <div class="row">
+                        {% for post in posts %}
+                        <div class="col-md-4 mb30">
+                            <div class="picframe wow mb20">
+                                <a href="{{ post.get_absolute_url}}">
+                                    <span class="overlay">
+                                        <span class="title">
+                                            <span>Read this article</span>
+                                        </span>
+                                    </span>
+                                    <img src="{{ post.feature_image.url }}" class="wow" alt="" />
+                                </a>
+                            </div>
+
+                            <div class="post-item s1 item">
+                                <div class="date-box">
+                                    <div class="m"></div>
+                                    <div class="d">{{ post.posted_date|date}}</div>
+                                </div>
+
+                                <div class="post-content">
+                                    <div class="post-text">
+                                        <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+                                        <p>{{ post.description }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        
+                    </div>
+
+                </div>
+            </section>
+            <!-- section close -->
+
+        </div>
+        <!-- content close -->
+{% endblock content %}
