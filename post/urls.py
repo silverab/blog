@@ -10,6 +10,7 @@ urlpatterns = [
     path('services/', views.services, name='services'),
     path('blog/', views.postblog, name='blog'),
     path('blog/<slug:slug>/', views.single_post, name='single_post'),
+    path('signup/', views.SignUp, name='signup'),
 
 ]
 

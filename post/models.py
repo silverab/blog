@@ -22,3 +22,21 @@ class Blog(models.Model):
 
 	def get_absolute_url(self):
 		return reverse("single_post", kwargs={"slug":self.slug})
+
+
+class UserInfo(models.Model):
+	Gender = (
+		('Male', 'Male'),
+		('Female', 'Female')
+		)
+	user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+	mobile = models.CharField(max_length=15, null=True, blank=True)
+	gender = models.CharField(max_length=6, choices=Gender)
+	education = models.CharField(max_length=30, null=True)
+	city = models.CharField(max_length=30, null=True)
+	country = models.CharField(max_length=30, blank=False)
+	profile = models.ImageField(null=True, blank=True)
+	Biography = models.TextField(null=True, blank=True)
+
+	def __str__(self):
+		return str(self.user)
