@@ -1,10 +1,11 @@
-from django.urls import path
+from django.urls import path, include
 from post import views
 from django.conf.urls.static import static
 from django.conf import settings
 
 
 urlpatterns = [
+	path('accounts/', include('django.contrib.auth.urls')),
     path('', views.home, name='home'),
     path('about_us/', views.about, name='about'),
     path('services/', views.services, name='services'),
