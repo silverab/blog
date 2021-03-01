@@ -1,3 +1,4 @@
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -60,97 +61,13 @@
                         <!-- mainmenu begin -->
                         <nav class="">
                             <ul id="mainmenu">
-                                <li><a href="{% url 'home' %}">Home</a>
-									<ul class="mega">
-										<li>
-											<div class="container">
-												<div class="menu-content">
-													<div class="row">
-														<div class="col-md-3 mb-lg-4 mb-sm-0">
-															<a href="index-onepage-10.html" class="no-padding">
-																<img src="{% static 'post/images/preview/12.jpg' %}" class="img-fullwidth" alt="">
-															</a>
-														</div>
-														
-														<div class="col-md-3 mb-lg-4 mb-sm-0">
-															<a href="index.html" class="no-padding">
-																<img src="{% static 'post/images/preview/9.jpg' %}" class="img-fullwidth" alt="">
-															</a>
-														</div>
-														
-														<div class="col-md-3 hidden-sm">
-															<a href="index-onepage-7.html" class="no-padding">
-																<img src="{% static 'post/images/preview/7.jpg' %}" class="img-fullwidth" alt="">
-															</a>
-														</div>
-														
-														<div class="col-md-3 hidden-sm">
-															<a href="index-onepage-6.html" class="no-padding">
-																<img src="{% static 'post/images/preview/6.jpg' %}" class="img-fullwidth" alt="">
-															</a>
-														</div>
-														
-														<div class="col-md-3 hidden-sm">
-															<a href="index-onepage-8.html" class="no-padding">
-																<img src="{% static 'post/images/preview/8.jpg' %}" class="img-fullwidth" alt="">
-															</a>
-														</div>
-														
-														<div class="col-md-3 hidden-sm">
-															<a href="index-business.html" class="no-padding">
-																<img src="{% static 'post/images/preview/10.jpg' %}" class="img-fullwidth" alt="">
-															</a>
-														</div>
-														
-														<div class="col-md-3 mb-lg-4 mb-sm-0">
-															<a href="index-onepage-9.html" class="no-padding">
-																<img src="{% static 'post/images/preview/11.jpg' %}" class="img-fullwidth" alt="">
-															</a>
-														</div>
-														
-														<div class="col-md-3 mb-lg-4 mb-sm-0">
-															<a href="index-onepage-1.html" class="no-padding">
-																<img src="{% static 'post/images/preview/1.jpg' %}" class="img-fullwidth" alt="">
-															</a>
-														</div>
-														
-														<div class="col-md-3 mb-lg-4 mb-sm-0">
-															<a href="index-onepage-2.html" class="no-padding">
-																<img src="{% static 'post/images/preview/2.jpg' %}" class="img-fullwidth" alt="">
-															</a>
-														</div>
-														
-														<div class="col-md-3 mb-lg-4 mb-sm-0">
-															<a href="index-onepage-3.html" class="no-padding">
-																<img src="{% static 'post/images/preview/3.jpg' %}" class="img-fullwidth" alt="">
-															</a>
-														</div>
-														
-														<div class="col-md-3 mb-lg-4 mb-sm-0">
-															<a href="index-onepage-4.html" class="no-padding">
-																<img src="{% static 'post/images/preview/4.jpg' %}" class="img-fullwidth" alt="">
-															</a>
-														</div>
-														
-														<div class="col-md-3 hidden-sm">
-															<a href="index-onepage-5.html" class="no-padding">
-																<img src="{% static 'post/images/preview/5.jpg' %}" class="img-fullwidth" alt="">
-															</a>
-														</div>
-														
-														<div class="clearfix"></div>
-													</div>
-												</div>
-											</div>
-										</li>                                        
-                                    </ul>
-								</li>
-								<li><a href="{% url 'about' %}">About Us</a></li>
-                                <li><a href="{% url 'services' %}">Services</a></li>
-                                <li><a href="{% url 'blog' %}">Blog</a></li>
-                                <li><a href="contact.html">Contact</a></li>
-                                <li><a href="{% url 'login' %}">Sign In</a></li>
-                                <li><a href="{% url 'signup' %}">Signup</a></li>
+                                <li class="{% block homeactive %} {% endblock homeactive %}"><a href="{% url 'home' %}">Home</a></li>
+								<li class="{% block aboutactive %} {% endblock aboutactive %}"><a href="{% url 'about' %}">About Us</a></li>
+                                <li class="{% block servicesactive %} {% endblock servicesactive %}"><a href="{% url 'services' %}">Services</a></li>
+                                <li class="{% block blogactive %} {% endblock blogactive %}"><a href="{% url 'blog' %}">Blog</a></li>
+                                <li class="{% block contactactive %} {% endblock contactactive %}"><a href="contact.html">Contact</a></li>
+                                <li class="{% block signInactive %} {% endblock signInactive %}"><a href="{% url 'login' %}">Sign In</a></li>
+                                <li class="{% block signupactive %} {% endblock signupactive %}"><a href="{% url 'signup' %}">Signup</a></li>
                             </ul>
                         </nav>
 						<!-- mainmenu close -->
