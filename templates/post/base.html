@@ -41,7 +41,7 @@
             </div>
         </div>
         <!-- header begin -->
-        <header>
+        <header class="bg-dark">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -66,8 +66,15 @@
                                 <li class="{% block servicesactive %} {% endblock servicesactive %}"><a href="{% url 'services' %}">Services</a></li>
                                 <li class="{% block blogactive %} {% endblock blogactive %}"><a href="{% url 'blog' %}">Blog</a></li>
                                 <li class="{% block contactactive %} {% endblock contactactive %}"><a href="contact.html">Contact</a></li>
-                                <li class="{% block signInactive %} {% endblock signInactive %}"><a href="{% url 'login' %}">Sign In</a></li>
+                                <li class="{% block signInactive %} {% endblock signInactive %}">
+                                    {% if user.is_authenticated %}
+                                    
+                                    <a href="#"><h3>{{ user.username }}</h3></a>
+                                    {% else %}
+                                    <a href="{% url 'login' %}">Sign In</a>
+                                </li>
                                 <li class="{% block signupactive %} {% endblock signupactive %}"><a href="{% url 'signup' %}">Signup</a></li>
+                                    {% endif %}
                             </ul>
                         </nav>
 						<!-- mainmenu close -->
