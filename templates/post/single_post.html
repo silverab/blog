@@ -41,6 +41,20 @@
                                         <p>{{ post.description }}</p>
                                     </div>
                                 </div>
+                                <br/>
+                                <h3>Comments...</h3>
+                                {% if not post.comments.all %}
+                                    No Comment Yet... <a href="#">Add One</a>
+                                {% else %}
+                                    {% for comment in post.comments.all %}
+                                        <strong>
+                                            {{ comment.name }} -
+                                            {{ comment.date_added }}
+                                        </strong>
+                                        <br/>
+                                            {{ comment.body }}
+                                    {% endfor %}
+                                {% endif %}
                             </div>
                         </div>
                         
