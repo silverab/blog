@@ -41,10 +41,10 @@
                                         <p>{{ post.description }}</p>
                                     </div>
                                 </div>
-                                <br/>
+                                <hr>
                                 <h3>Comments...</h3>
                                 {% if not post.comments.all %}
-                                    No Comment Yet... <a href="#">Add One</a>
+                                    No Comment Yet... <a href="{% url 'add_comment' %}">Add One</a>
                                 {% else %}
                                     {% for comment in post.comments.all %}
                                         <strong>

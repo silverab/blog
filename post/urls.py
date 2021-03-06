@@ -1,5 +1,8 @@
 from django.urls import path, include
+
+from .views import AddCommentView
 from post import views
+
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -11,6 +14,7 @@ urlpatterns = [
     path('services/', views.services, name='services'),
     path('blog/', views.postblog, name='blog'),
     path('blog/<slug:slug>/', views.single_post, name='single_post'),
+    path('blog/<slug:slug>/comment/', AddCommentView.as_view(), name='add_comment'),
     path('signup/', views.SignUp, name='signup'),
 
 ]

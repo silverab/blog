@@ -4,7 +4,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login
 from django.contrib.auth.models import User
 from .forms import CreateUserForm, UserInfoForm
-from .models import Blog, UserInfo
+from django.views.generic import CreateView
+from .models import Blog, UserInfo, Comment
 from datetime import datetime, timedelta
 
 def home(request):
@@ -62,3 +63,8 @@ def SignUp(request):
 		return render(request, 'registration/signup.html', context)
 	
 	# return redirect('login')
+
+class AddCommentView(CreateView):
+	model = Comment
+	template_name = 'post/add_comment.html'
+	fields = '__all__'
